@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Theme</title>
+    <style>
+        button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            width: 200px;
+            font-weight: 600;
+            background: none;
+            border: none;
+            background-color: green;
+            color: white;
+            text-shadow: 0 0 4px 4px #000000;
+
+        }
+
+        .main {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+         
+        }
+
+        .p1,
+        .p2 {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            width: 200px;
+            font-weight: 600;
+            background: none;
+            border: none;
+            background-color: green;
+            color: white;
+            text-shadow: 0 0 4px 4px #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        
+        <div class="buttons">
+             <h1>Click to change<br/> Page Theme</h1>
+            <button onclick="light()">Light Mode</button>
+            <button onclick="dark()">Dark Mode</button>
+        </div>
+
+        <div class="otp">
+            <h1>Random OTP</h1>
+            <p class="p1" id="digit6"></p>
+            <p class="p2" id="digit4"></p>
+        </div>
+    </div>
+
+    <script>
+        function light() {
+            document.querySelector('html').style.colorScheme = 'light'
+
+        }
+
+        function dark() {
+            document.querySelector('html').style.colorScheme = 'dark'
+
+        }
+
+
+        //generate random OTP
+        var xyz = "";
+
+        var abc = "";
+        function generateOTP(length) {
+            let OTP = "";
+            for (i = 0; i < length; i++) {
+                let randomNumber = Math.floor(Math.random() * 10);
+                OTP = OTP + randomNumber.toString();
+
+            }
+
+            return OTP
+        }
+
+        xyz += generateOTP(6);
+        abc += generateOTP(4);
+
+        document.getElementById("digit6").innerHTML = xyz;
+        document.getElementById("digit4").innerHTML = abc;
+
+
+    </script>
+
+</body>
+
+</html>
